@@ -1,0 +1,58 @@
+#kobe\conf\base\parameters.yml
+
+classification:
+  target: shot_made_flag
+  test_size: 0.2
+  session_id: 123
+
+  # MLflow config antes no mlflow.yml
+  experiment_name: kobe_classification
+  mlflow_tracking_uri: http://localhost:5000
+
+  models: ["LogisticRegression", "RandomForest", "XGBoost"]
+
+  preprocessing:
+    normalize: true
+    scale: true
+    output_model_path: models/classification_model.pkl
+
+  hyperparameters:
+    max_depth: 10
+    learning_rate: 0.01
+    n_estimators: 100
+
+  mlflow_output:
+    model_format: "pickle"
+    artifacts_folder: "models/classification_artifacts/"
+
+  metrics: ["accuracy", "precision", "recall", "f1", "roc_auc"]
+
+
+regression:
+  target: shot_distance
+  test_size: 0.2
+  session_id: 123
+
+  experiment_name: kobe_regression
+  mlflow_tracking_uri: http://localhost:5000
+
+  models: ["LinearRegression", "LightGBMRegressor", "CatBoostRegressor"]
+
+  preprocessing:
+    normalize: false
+    scale: false
+    output_model_path: data/06_models/regression_model.pkl
+
+  hyperparameters:
+    LightGBMRegressor:
+      num_leaves: 31
+      learning_rate: 0.05
+    CatBoostRegressor:
+      depth: 6
+      iterations: 100
+
+  mlflow_output:
+    model_format: pickle
+    artifacts_folder: data/06_models/regression_artifacts/
+
+  metrics: ["MAE", "MSE", "RMSE", "R2"]

@@ -1,0 +1,52 @@
+#kobe\conf\base\catalog\yml
+
+# 01 - Raw Data
+kobe_raw_data:
+  type: pandas.ParquetDataset
+  filepath: data/01_raw/dataset_kobe_dev.parquet
+
+# 02 - Intermediate (Cleaned)
+kobe_cleaned_data:
+  type: pandas.ParquetDataset
+  filepath: data/02_intermediate/kobe_cleaned_data.parquet
+
+# 05 - Feature Engineered Data
+classification_features:
+  type: pandas.ParquetDataset
+  filepath: data/05_model_input/classification_features.parquet
+
+regression_features:
+  type: pandas.ParquetDataset
+  filepath: data/05_model_input/regression_features.parquet
+
+# 06 - Models (Opcional - se quiser salvar os modelos localmente)
+# classifier_model:
+#   type: pickle.PickleDataset
+#   filepath: data/06_models/classifier_model.pkl
+
+# regressor_model:
+#   type: pickle.PickleDataset
+#   filepath: data/06_models/regressor_model.pkl
+
+# 07 - Model Comparisons (PyCaret pull() dataframe)
+comparison_df:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/classification_model_comparison.csv
+
+# 08 - Evaluation Metrics
+classification_metrics:
+  type: json.JSONDataset
+  filepath: data/08_reporting/classification_metrics.json
+
+regression_metrics:
+  type: json.JSONDataset
+  filepath: data/08_reporting/regression_metrics.json
+
+# Legado: se usar múltiplas comparações
+# classification_model_comparison:
+#   type: pandas.CSVDataSet
+#   filepath: data/08_reporting/classification_model_comparison.csv
+
+# regression_model_comparison:
+#   type: pandas.CSVDataSet
+#   filepath: data/08_reporting/regression_model_comparison.csv

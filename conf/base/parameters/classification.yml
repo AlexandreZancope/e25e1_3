@@ -1,0 +1,11 @@
+#kobe\conf\base\parameters\classification.yml
+
+target: shot_made_flag
+test_size: 0.2
+session_id: 42
+experiment_name: kobe_classification
+mlflow_tracking_uri: file:///C:/Users/Opentech_Ps/kobe/mlruns
+
+metrics:
+  - Accuracy
+  - F1

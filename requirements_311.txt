@@ -1,0 +1,21 @@
+#kobe\requirements_311.txt
+
+# Python version
+# python==3.11.9
+
+# Pipeline Framework (Kedro)
+kedro==0.19.12
+
+# AutoML
+pycaret==3.3.2
+
+# Experiments Management
+mlflow==2.21.2
+
+# Compatible Version for Reports
+streamlit==1.33.0
+
+# Kedro Datasets
+kedro-datasets==6.0.0
+kedro-datasets[pandas]
+kedro-datasets[mlflow]

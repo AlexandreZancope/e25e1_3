@@ -1,0 +1,48 @@
+#kobe\conf\prod\catalog.yml
+
+# 01 - Raw Data
+kobe_raw_data:
+  type: pandas.ParquetDataset
+  filepath: data/01_raw/dataset_kobe_prod.parquet
+
+# 02 - Cleaned Data
+kobe_cleaned_data:
+  type: pandas.ParquetDataset
+  filepath: data/02_intermediate/kobe_cleaned_data_prod.parquet
+
+# 05 - Features (Input for Models)
+classification_features:
+  type: pandas.ParquetDataset
+  filepath: data/05_model_input/classification_features_prod.parquet
+
+regression_features:
+  type: pandas.ParquetDataset
+  filepath: data/05_model_input/regression_features_prod.parquet
+
+# 06 - Trained Models
+#classifier_model:
+#  type: mlflow.model_registry.MlflowModelDataset
+#  tracking_uri: http://localhost:5000
+#  model_name: classifier_model_prod
+
+#regressor_model:
+#  type: mlflow.model_registry.MlflowModelDataset
+#  tracking_uri: http://localhost:5000
+#  model_name: regressor_model_prod
+
+# 08 - Evaluation Metrics and Reporting
+classification_metrics:
+  type: json.JSONDataset
+  filepath: data/08_reporting/classification_metrics_prod.json
+
+regression_metrics:
+  type: json.JSONDataset
+  filepath: data/08_reporting/regression_metrics_prod.json
+
+extended_classification_metrics:
+  type: pandas.CSVDataSet
+  filepath: data/08_reporting/classification_metrics_comparison_prod.csv
+
+extended_regression_metrics:
+  type: pandas.CSVDataSet
+  filepath: data/08_reporting/regression_metrics_comparison_prod.csv
